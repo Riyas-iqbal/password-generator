@@ -49,8 +49,9 @@ form {
   padding: 10px;
 }
 .result .clipboard {
-  width: 15%;
+  width: 20%;
   height: 100%;
+  gap:6px;
   position: absolute;
   right: 0;
   top: 50%;
@@ -100,6 +101,11 @@ form {
   cursor: pointer;
 }
 
+.btn-group{
+  display: flex;
+  gap: 5px;
+}
+
 button[type='submit'] {
   display: inline-block;
   width: 100%;
@@ -114,8 +120,81 @@ button[type='submit'] {
   border-radius: 6px;
 }
 
+button[type='submit']:hover{
+  background-color: rgb(22, 74, 231);
+}
+
+.clear{
+  width: 20%;
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: rgb(211, 12, 12);
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  margin-top: 30px;
+  border-radius: 6px;
+}
+
+.clear:hover{
+  background-color: rgb(183, 9, 9);
+}
+
+
 @media only screen and (max-width: 678px) {
   .field {
     font-size: 16px;
   }
+}
+
+
+/* Input type checkbox style */
+
+label:has([role=switch]) { 
+  zoom: var(--switch-zoom, 1);
+  display: inline-flex; 
+  align-items: center; 
+  gap: 1em; 
+  cursor: pointer; 
+  user-select: none;
+}
+
+input[role=switch] {
+	--switch-handle-size: 8px;
+	--switch-bg-size: 24px;
+  --switch-handle-gap: 3px;
+
+	--switch-fg: royalblue;
+	--switch-bg: color-mix(in srgb, var(--switch-fg) 30%, transparent);
+
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  display: inline-flex;
+  padding-inline: 0 var(--switch-bg-size);
+  border: none;
+  font-size: 0;
+  margin: 0;
+  border-radius: 100px;
+  background: var(--switch-bg);
+  transition: var(--switch-duration, .2s) cubic-bezier(.65, 0, .5, 1);;
+  user-select: none;
+  outline: none;
+  filter: grayscale(1);  /* de-colorize the switch */
+  cursor: pointer;
+}
+
+input[role=switch]:checked {
+	padding-inline: var(--switch-bg-size) 0;
+  filter: none;
+}
+
+input[role=switch]::before {
+  content: '';
+  padding: var(--switch-handle-size);
+  margin: var(--switch-handle-gap);
+  background: var(--switch-fg);
+  border-radius: 50%;
+  transition: inherit;
 }
